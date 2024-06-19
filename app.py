@@ -177,7 +177,7 @@ if st.session_state.graphs:
 
         elif graph_selectbox == 'Analysis on a Single Plot':
 
-            state = st.sidebar.selectbox('Select 1st State', lst_states[1:])
+            state = st.sidebar.selectbox('Select a State', lst_states[1:])
 
             analysis_on  = st.sidebar.selectbox('Select an attribute',lst_attributes)
 
@@ -188,7 +188,7 @@ if st.session_state.graphs:
                 st.text('* You can see the details by hovering on a particular Point.')
                 st.text(f'* Line represents -> {analysis_on}')
 
-                fig = px.line(main_df[main_df['State'] == 'Andhra Pradesh'], x='District', y=analysis_on,
+                fig = px.line(main_df[main_df['State'] == state], x='District', y=analysis_on,
                               title=f'{analysis_on} of {state}', hover_name=analysis_on)
                 fig.update_traces(textposition="top center")
 
